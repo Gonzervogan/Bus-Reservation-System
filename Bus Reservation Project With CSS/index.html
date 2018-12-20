@@ -1,0 +1,93 @@
+<!DOCTYPE  html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="static/styles/main.css">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+  <script type="text/javascript" src="static/scripts/app.js"></script>
+  <script type="text/javascript" src="static/scripts/services.js"></script>
+  <script type="text/javascript" src="static/scripts/controllers/header.js"></script>
+  <script type="text/javascript" src="static/scripts/controllers/history.js"></script>
+  <script type="text/javascript" src="static/scripts/controllers/login.js"></script>
+  <script type="text/javascript" src="static/scripts/controllers/search.js"></script>
+  <script type="text/javascript" src="static/scripts/controllers/bus.js"></script>
+  <script type="text/javascript" src="static/scripts/controllers/bustype.js"></script>
+  <script type="text/javascript" src="static/scripts/controllers/route.js"></script>
+  <script type="text/javascript" src="static/scripts/controllers/schedule.js"></script>
+  <title>Bus Reservation System</title>
+</head>
+
+<body ng-app="MainApp">
+
+
+  <div class="header" ng-controller="HeaderController as hdctrl">
+    <div class="top_nav pull-left">
+      <span class="no-hover">YellowBUS</span>
+      <a ng-click="hdctrl.book()">Book Ticket</a>
+      <a ng-click="hdctrl.cancel()">Cancel Ticket</a>
+      <a ng-click="hdctrl.history()">Booking History</a>
+      <a ng-if-start="hdctrl.isadmin()" ng-click="hdctrl.route()">Routes</a>
+      <a ng-click="hdctrl.bus()">Buses</a>
+      <a ng-click="hdctrl.schedule()">Schedule</a>
+      <a ng-if-end ng-click="hdctrl.bustype()">Bus Types</a>
+    </div>
+    <div class="top_nav pull-right"><div style="float:right;width:50%; text-align:center;">Hello <span style="float:right;font-size:20px; padding-right: 20%;" ng-bind="hdctrl.userservice.getuser().name" ></span></div>
+      <button ng-click="hdctrl.userservice.turnonoverlay()" ng-hide="hdctrl.userservice.getuserstatus()">Login</button>
+      <button ng-click="hdctrl.userservice.logout()" ng-show="hdctrl.userservice.getuserstatus()">Logout</button>
+    </div>
+  </div>
+
+
+  <div ng-controller="LoginController as lgctrl">
+    <div ng-if="lgctrl.userservice.overlaystatus">
+      <div class="login_overlay"></div>
+      <div class="on_top">
+        <button ng-click="lgctrl.userservice.turnoffoverlay()">Close</button>
+        <div class="login_box">
+          <div class="tab_choices">
+            <a ng-click="lgctrl.open('login')">Login</a>
+            <a ng-click="lgctrl.open('signup')">Signup</a>
+          </div>
+          <div class="login-signup" ng-switch on="lgctrl.tab">
+            <div ng-switch-when="login">
+              <form ng-submit="lgctrl.login()">
+                <table>
+                  <tr>
+                    <td>Username:</td>
+                    <td><input type="text" ng-model="lgctrl.user.userName"></td>
+                  </tr>
+                  <tr>
+                    <td>Password:</td>
+                    <td><input type="password" ng-model="lgctrl.user.password"></td>
+                  </tr>
+                </table>
+                <input class="submit" type="submit" value="Login">
+              </form>
+            </div>
+            <div ng-switch-when="signup">
+              <form ng-submit="lgctrl.signup()">
+                <table>
+                  <tr>
+                    <td>Name:</td>
+                    <td><input type="text" ng-model="lgctrl.user.name"></td>
+                  </tr>
+                  <tr>
+                    <td>Username:</td>
+                    <td><input type="text" ng-model="lgctrl.user.userName"></td>
+                  </tr>
+                  <tr>
+                    <td>Password:</td>
+                    <td><input type="password" ng-model="lgctrl.user.password"></td>
+                  </tr>
+                </table>
+                <input class="submit" type="submit" value="Signup">
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div ng-view></div>
+</body>
+</html>

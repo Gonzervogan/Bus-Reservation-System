@@ -1,0 +1,155 @@
+body{
+background-color: #e5e109;
+color: maroon;
+}
+
+.submit{
+margin-left: 44%;
+width: 16%;
+margin-top: 20px;
+}
+
+.on_top button {
+    float: right;
+    margin: 10px;
+}
+
+.header{
+  width:  100%;
+}
+
+.on_top{
+  position: fixed;
+  z-index:    11;
+  top:        0;
+  left:       0;
+  width:      100%;
+  height:     100%;
+}
+
+.login_overlay {
+  opacity: .5;
+  background: #000;
+  width:      100%;
+  height:     100%;
+  z-index:    10;
+  top:        0;
+  left:       0;
+  position:   fixed;
+}
+.login_box {
+  color: #fdfdfd;
+  min-width: 250px;
+  max-width: 350px;
+  width: 30%;
+  margin-left: 35%;
+  margin-top: 15%;
+  height: 30%;
+  background-color: #4CAF50;
+}
+
+
+
+.top_nav {
+  overflow: hidden;
+  background-color: #333;
+}
+
+/*.top_nav span {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  /* padding: 14px 16px; */
+  /*text-decoration: none;
+  font-size: 17px;
+  width: 10%;
+  height: 40px;
+  padding-top: 20px;
+}*/
+
+.pull-left{
+  width: 80%;
+  float:left;
+}
+
+.pull-right{
+  width: 20%;
+  float: right;
+}
+
+.no-hover{
+  color: #f2f2f2;
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  font-size: 17px;
+  width: 10%;
+  height: 40px;
+  padding-top: 20px;
+  margin-left: 5px;
+  float:left;
+}
+.pull-left a,span{
+  float:left;
+}
+
+.pull-right a,span{
+  float:right;
+}
+
+.top_nav a,span {
+  color: #f2f2f2;
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  font-size: 17px;
+  width: 10%;
+  height: 40px;
+  padding-top: 20px;
+}
+
+.top_nav a:hover {
+  background-color: #FFC107;
+  color: black;
+}
+
+.top_nav a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.tab_choices {
+  overflow: hidden;
+  background-color: #333;
+}
+
+.tab_choices a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  /* padding: 14px 16px; */
+  text-decoration: none;
+  font-size: 17px;
+  width: 50%;
+  height: 40px;
+  padding-top: 20px;
+}
+
+.tab_choices a:hover {
+  background-color: #FFC107;
+  color: black;
+}
+
+.tab_choices a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.login-signup{
+}
+
+.login-signup td {
+    width: 50%;
+}
+
+.login-signup {}
